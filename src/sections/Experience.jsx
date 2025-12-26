@@ -9,7 +9,7 @@ const experiences = [
         description:
             'Worked on end-to-end ML workflows including preprocessing, feature engineering, model training, evaluation, and visualization. Built clustering and regression models for production-oriented datasets.',
         certificate: {
-            image: '/src/assets/certificate-2025.jpg.png',
+            image: '/assets/certificate-2025.jpg.png',
             linkedin:
                 'https://www.linkedin.com/feed/update/urn:li:activity:7349058405971488770/',
         },
@@ -21,7 +21,7 @@ const experiences = [
         description:
             'Developed backend applications using Flask and SQLAlchemy. Built an Employee Management System with CRUD APIs, REST workflows, Git, and Postman.',
         certificate: {
-            image: '/src/assets/certificate-2024.jpg.png',
+            image: '/assets/certificate-2024.jpg.png',
             linkedin:
                 'https://www.linkedin.com/feed/update/urn:li:activity:7226536777371545601/',
         },

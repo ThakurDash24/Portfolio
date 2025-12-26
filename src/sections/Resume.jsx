@@ -91,7 +91,7 @@ const Resume = () => {
                     <button
                         onClick={() =>
                             window.open(
-                                '/src/assets/Resume_ThakurDash.pdf',
+                                '/assets/Resume_ThakurDash.pdf',
                                 '_blank'
                             )
                         }
@@ -122,7 +122,7 @@ const Resume = () => {
                     <button
                         onClick={() =>
                             window.open(
-                                '/src/assets/CV_ThakurDash.pdf',
+                                '/assets/CV_ThakurDash.pdf',
                                 '_blank'
                             )
                         }
