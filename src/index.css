@@ -380,22 +380,30 @@ ul {
   }
 }
 
+/* =================================
+   FIX HEADER COLLISION (PROPER WAY)
+================================= */
+
+:root {
+  --header-offset: 120px;
+}
+
 @media (max-width: 768px) {
 
-  /* Fix dynamic mobile viewport issues */
-  body {
-    padding-top: 96px;
-    /* reserves space for fixed header */
-  }
-
-  .header {
-    height: 96px;
-    /* lock header height */
-  }
-
+  /* Push content below fixed header */
   .section {
+    padding-top: var(--header-offset);
     min-height: auto;
-    /* prevent forced centering clash */
     justify-content: flex-start;
+  }
+
+  /* Fix anchor scroll (About, Experience etc.) */
+  section[id] {
+    scroll-margin-top: var(--header-offset);
+  }
+
+  /* Header stays visually intact */
+  .header {
+    padding: 1.2rem 0;
   }
 }
