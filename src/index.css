@@ -315,15 +315,17 @@ ul {
 /* Media Queries */
 @media (max-width: 768px) {
 
+  /* ---------------- Layout spacing ---------------- */
   .container {
     padding: 0 1.5rem;
   }
 
   .section {
-    padding: 4rem 0;
+    padding: 5.5rem 0 4rem;
+    /* top padding fixes header overlap */
   }
 
-  /* Header Mobile */
+  /* ---------------- Header ---------------- */
   .header {
     padding: 1rem 0;
   }
@@ -334,30 +336,30 @@ ul {
   }
 
   .nav-menu {
-    gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 1rem;
   }
 
   .nav-link {
     font-size: 0.8rem;
   }
 
-  /* ❌ REMOVE forced heading resizing */
-  /* h1, h2 untouched — inline styles stay respected */
-
-  /* ABOUT → image below text */
+  /* ---------------- ABOUT ---------------- */
   #about>div {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    /* overrides inline grid */
   }
 
   #about img {
+    width: 100%;
     height: 260px;
   }
 
-  /* EXPERIENCE → certificate below card */
+  /* ---------------- EXPERIENCE ---------------- */
   #experience>div>div {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    /* certificate moves below */
   }
 
   #experience img {
@@ -366,14 +368,14 @@ ul {
     object-fit: contain;
   }
 
-  /* PROJECTS */
+  /* ---------------- PROJECTS ---------------- */
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  /* RESEARCH & SKILLS */
+  /* ---------------- RESEARCH & SKILLS ---------------- */
   #research div[style*="grid"],
   #skills div[style*="grid"] {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
 }
