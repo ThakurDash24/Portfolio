@@ -314,6 +314,7 @@ ul {
 
 /* Media Queries */
 @media (max-width: 768px) {
+
   .container {
     padding: 0 1.5rem;
   }
@@ -342,18 +343,37 @@ ul {
     font-size: 0.8rem;
   }
 
-  /* Typography Mobile */
-  h1 {
-    font-size: 2.5rem;
+  /* ❌ REMOVE forced heading resizing */
+  /* h1, h2 untouched — inline styles stay respected */
+
+  /* ABOUT → image below text */
+  #about>div {
+    grid-template-columns: 1fr;
   }
 
-  h2 {
-    font-size: 2rem !important;
-    /* Override inline styles if any remain, though best to refactor those too */
+  #about img {
+    height: 260px;
   }
 
-  /* Projects Mobile */
+  /* EXPERIENCE → certificate below card */
+  #experience>div>div {
+    grid-template-columns: 1fr;
+  }
+
+  #experience img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: contain;
+  }
+
+  /* PROJECTS */
   .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* RESEARCH & SKILLS */
+  #research div[style*="grid"],
+  #skills div[style*="grid"] {
     grid-template-columns: 1fr;
   }
 }
