@@ -379,3 +379,23 @@ ul {
     grid-template-columns: 1fr !important;
   }
 }
+
+@media (max-width: 768px) {
+
+  /* Fix dynamic mobile viewport issues */
+  body {
+    padding-top: 96px;
+    /* reserves space for fixed header */
+  }
+
+  .header {
+    height: 96px;
+    /* lock header height */
+  }
+
+  .section {
+    min-height: auto;
+    /* prevent forced centering clash */
+    justify-content: flex-start;
+  }
+}
