@@ -312,20 +312,14 @@ ul {
   color: var(--text-color);
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
 
-  /* ---------------- Layout spacing ---------------- */
+  /* Layout spacing */
   .container {
     padding: 0 1.5rem;
   }
 
-  .section {
-    padding: 5.5rem 0 4rem;
-    /* top padding fixes header overlap */
-  }
-
-  /* ---------------- Header ---------------- */
+  /* Header */
   .header {
     padding: 1rem 0;
   }
@@ -345,10 +339,14 @@ ul {
     font-size: 0.8rem;
   }
 
-  /* ---------------- ABOUT ---------------- */
+  /* HOME – small safe offset */
+  #home .container {
+    margin-top: 2.5rem;
+  }
+
+  /* ABOUT */
   #about>div {
     grid-template-columns: 1fr !important;
-    /* overrides inline grid */
   }
 
   #about img {
@@ -356,10 +354,9 @@ ul {
     height: 260px;
   }
 
-  /* ---------------- EXPERIENCE ---------------- */
+  /* EXPERIENCE */
   #experience>div>div {
     grid-template-columns: 1fr !important;
-    /* certificate moves below */
   }
 
   #experience img {
@@ -368,42 +365,20 @@ ul {
     object-fit: contain;
   }
 
-  /* ---------------- PROJECTS ---------------- */
+  /* PROJECTS */
   .projects-grid {
     grid-template-columns: 1fr;
   }
 
-  /* ---------------- RESEARCH & SKILLS ---------------- */
+  /* RESEARCH & SKILLS */
   #research div[style*="grid"],
   #skills div[style*="grid"] {
     grid-template-columns: 1fr !important;
   }
 }
 
-/* =================================
-   FIX HEADER COLLISION (PROPER WAY)
-================================= */
-
-:root {
-  --header-offset: 120px;
-}
-
-@media (max-width: 768px) {
-
-  /* Push content below fixed header */
-  .section {
-    padding-top: var(--header-offset);
-    min-height: auto;
-    justify-content: flex-start;
-  }
-
-  /* Fix anchor scroll (About, Experience etc.) */
-  section[id] {
-    scroll-margin-top: var(--header-offset);
-  }
-
-  /* Header stays visually intact */
-  .header {
-    padding: 1.2rem 0;
+@media (max-width: 360px) {
+  #home .container {
+    margin-top: 2rem;
   }
 }
