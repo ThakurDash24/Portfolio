@@ -23,9 +23,154 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-body);
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading Screen Styles */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0a0a0a;
+  /* Deep dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1.5s ease-out, visibility 1.5s ease-out;
+  /* Faster fade (1.5s) */
+}
+
+.loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loading-text {
+  font-family: 'Cinzel', serif;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  opacity: 0;
+  /* Start hidden */
+  animation: enterAndTurnGold 2s ease-in-out forwards 0.8s;
+  /* Delay appearance */
+  transition: all 1.5s ease-out;
+}
+
+.loading-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  opacity: 0;
+  /* Start hidden */
+  animation: enterAndTurnGold 2s ease-in-out forwards 0.2s;
+  /* Start slightly earlier */
+  transition: all 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 0.8;
+  }
+}
+
+@keyframes turnGold {
+  0% {
+    color: #ffffff;
+  }
+
+  100% {
+    color: #bf953f;
+    /* Solid Gold, no glow */
+  }
+}
+
+@keyframes enterAndTurnGold {
+  0% {
+    opacity: 0;
+    color: #ffffff;
+  }
+
+  20% {
+    opacity: 1;
+    color: #ffffff;
+  }
+
+  100% {
+    opacity: 1;
+    color: #bf953f;
+    /* Gold */
+  }
+}
+
+/* Content Animation */
+/* Content Animation */
+.content-wrapper {
+  opacity: 0;
+  filter: blur(10px);
+  transform: scale(1.02);
+  /* Subtle zoom out for depth */
+  transition: opacity 1.5s ease-out, filter 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.content-visible .content-wrapper {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+/* Header and BG Animation */
+.header,
+.luxury-bg-container {
+  opacity: 0;
+  transition: opacity 1.5s ease-out;
+}
+
+.content-visible .header,
+.content-visible .luxury-bg-container {
+  opacity: 1;
+}
+
+/* Ensure Header transition doesn't conflict with scroll effect */
+.header {
+  transition: opacity 1.5s ease-out, padding 0.3s ease, background 0.3s ease;
+}
+
+/* Dust Fade Out Effect */
+.loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loading-screen.fade-out .loading-text,
+.loading-screen.fade-out .loading-subtitle {
+  opacity: 0;
+  filter: blur(25px);
+  /* Stronger blur */
+  transform: scale(1.5);
+  /* Larger expansion */
+  letter-spacing: 20px;
+  /* More scattering */
+}
+
+@media (max-width: 768px) {
+  .loading-text {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
 }
 
 h1,
