@@ -53,6 +53,20 @@ const Contact = () => {
                     padding: '3.5rem',
                     borderRadius: '6px',
                 }}
+                onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    e.currentTarget.style.background = `radial-gradient(
+                        600px circle at ${x}px ${y}px,
+                        rgba(255,255,255,0.08),
+                        transparent 40%
+                    )`;
+                }}
+                onMouseLeave={(e) => {
+                    e.currentTarget.style.background = '';
+                }}
             >
                 <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>
                     Get in Touch
